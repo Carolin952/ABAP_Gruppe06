@@ -1,0 +1,5 @@
+@EndUserText.label: 'Event Service Definition App 1'
+define service ZUI_EVENT_006 {
+  expose ZC_EVENT_006        as Event;
+  expose ZC_REGISTRATION_006 as Registration;
+}

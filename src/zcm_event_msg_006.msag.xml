@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZCM_EVENT_MSG_006</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Message Class for Event</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_EVENT_MSG_006</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Ungültiges Datum: Das Enddatum liegt vor dem Startdatum.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_EVENT_MSG_006</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Das Startdatum darf nicht in der Vergangenheit liegen.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_EVENT_MSG_006</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Maximale Teilnehmerzahl für dieses Event erreicht.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCM_EVENT_MSG_006</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Alle Felder müssen ausgefüllt werden.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

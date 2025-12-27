@@ -1,0 +1,32 @@
+managed implementation in class zbp_r_regist_app2_006 unique;
+strict ( 2 );
+
+define behavior for ZR_REGISTRATION_006_APP2 alias Registration
+persistent table zrap_regist_006
+lock master
+authorization master ( instance )
+{
+  update;
+
+  field ( readonly, numbering : managed ) RegistrationUuid;
+  field ( readonly ) RegistrationId, EventUuid, Status;
+  field ( mandatory ) ParticipantUuid;
+
+  // Buttons für App 2
+  action ApproveRegistration result [1] $self;
+  action RejectRegistration result [1] $self;
+
+  mapping for zrap_regist_006
+  {
+    RegistrationUuid = registration_uuid;
+    RegistrationId = registration_id;
+    EventUuid = event_uuid;
+    ParticipantUuid = participant_uuid;
+    Remarks = remarks;
+    Status = status;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+  }
+}

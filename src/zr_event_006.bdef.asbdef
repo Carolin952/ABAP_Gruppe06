@@ -1,0 +1,77 @@
+managed implementation in class zbp_r_event_006 unique;
+strict ( 2 );
+
+define behavior for ZR_EVENT_006 alias Event
+persistent table zrap_event_006
+lock master
+authorization master ( instance )
+{
+  create ( authorization : global );
+  delete;
+  update;
+
+  association _Registrations { create; }
+
+  field ( readonly, numbering : managed ) EventUuid;
+  field ( readonly ) EventId, Status;
+  field ( mandatory : create, mandatory : update ) Title, Location, StartDate, EndDate, MaxParticipants, Description;
+
+
+  determination SetEventStatus on modify { create; }
+  determination GenerateEventId on modify { create; }
+
+  validation ValidateDates on save { create; }
+  validation ValidateStartDate on save { create; }
+
+  action  OpenEvent result [1] $self;
+  action  CloseEvent result [1] $self;
+
+  mapping for zrap_event_006
+  {
+    EventUuid = event_uuid;
+    EventId = event_id;
+    EndDate = end_date;
+    Description = description;
+    MaxParticipants = max_participants;
+    Location = location;
+    Title = title;
+    Status = status;
+    StartDate = start_date;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+  }
+}
+
+define behavior for ZR_REGISTRATION_006 alias Registrations
+persistent table zrap_regist_006
+lock dependent by _Event
+authorization dependent by _Event
+{
+  delete;
+  update;
+  association _Event;
+
+  validation MaxParticipantsNotReached on save { create; }
+  determination SetRegistrationstatus on modify { create; }
+  determination GenerateRegistrationId on modify { create; }
+
+  field ( readonly, numbering : managed ) RegistrationUuid;
+  field ( readonly ) RegistrationId, EventUuid, Status;
+  field ( mandatory : create, mandatory : update ) ParticipantUuid;
+
+  mapping for zrap_regist_006
+  {
+    RegistrationUuid = registration_uuid;
+    RegistrationId = registration_id;
+    EventUuid = event_uuid;
+    ParticipantUuid = participant_uuid;
+    Remarks = remarks;
+    Status = status;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+  }
+}

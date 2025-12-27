@@ -1,0 +1,10 @@
+projection;
+strict ( 2 );
+
+define behavior for ZC_REGISTRATION_006_APP2 //alias <alias_name>
+{
+  use update;
+
+  use action ApproveRegistration;
+  use action RejectRegistration;
+}
